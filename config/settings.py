@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'v!d8(br$3z2oihxdjr@_d8dh8t#uz#hey@12e92+%+#9@++s1^'
+SECRET_KEY = 'xj^yvhq53a-is=)tc=@lgb2c#tcz3u!*9-#1mws@qovqvc%48('
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'phonenumber_field',
+    'graphene_django',
+    'blogs',
 ]
 
 MIDDLEWARE = [
@@ -118,3 +121,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+GRAPHENE = {
+  'SCHEMA': 'blogs.graphql.schema.schema'
+}

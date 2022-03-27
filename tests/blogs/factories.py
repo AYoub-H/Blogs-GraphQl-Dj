@@ -1,3 +1,4 @@
+import factory
 from factory import DjangoModelFactory, Faker
 from blogs.models import Blog, User, Comment
 
@@ -10,3 +11,16 @@ class UserFactory(DjangoModelFactory):
     class Meta:
         model = User
 
+class BlogFactory(DjangoModelFactory):
+    title = factory.Iterator(["django capabilities", "graphql capabilities"])
+    author = factory.SubFactory(UserFactory)
+
+    class Meta:
+        model = Blog
+
+class CommentFactory(DjangoModelFactory):
+    blog = factory.SubFactory(BlogFactory)
+    name = Faker("name")
+
+    class Meta:
+        model = Comment
